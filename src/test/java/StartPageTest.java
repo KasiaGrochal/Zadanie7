@@ -1,11 +1,14 @@
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.parallel.Execution;
+import org.junit.jupiter.api.parallel.ExecutionMode;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.EnumSource;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
+@Execution(ExecutionMode.CONCURRENT)
 public class StartPageTest extends TestBase {
 
 
@@ -16,7 +19,7 @@ public class StartPageTest extends TestBase {
     @Tag("kotuszkowo")
     void verifyKotuszkowoStartPageTitle(Websites websites) {
         driver.get(websites.getWebUrl());
-        String actualTitle= driver.getTitle();
+        String actualTitle = driver.getTitle();
         assertThat(actualTitle, equalTo(websites.getTitle()));
     }
 
@@ -27,7 +30,7 @@ public class StartPageTest extends TestBase {
     @Tag("onet")
     void verifyOnetStartPageTitle(Websites websites) {
         driver.get(websites.getWebUrl());
-        String actualTitle= driver.getTitle();
+        String actualTitle = driver.getTitle();
         assertThat(actualTitle, equalTo(websites.getTitle()));
     }
 
@@ -38,7 +41,7 @@ public class StartPageTest extends TestBase {
     @Tag("siiportal")
     void verifySiiPortalStartPageTitle(Websites websites) {
         driver.get(websites.getWebUrl());
-        String actualTitle= driver.getTitle();
+        String actualTitle = driver.getTitle();
         assertThat(actualTitle, equalTo(websites.getTitle()));
     }
 
@@ -49,7 +52,7 @@ public class StartPageTest extends TestBase {
     @Tag("filmweb")
     void verifyFilmwebStartPageTitle(Websites websites) {
         driver.get(websites.getWebUrl());
-        String actualTitle= driver.getTitle();
+        String actualTitle = driver.getTitle();
         assertThat(actualTitle, equalTo(websites.getTitle()));
     }
 
@@ -60,10 +63,8 @@ public class StartPageTest extends TestBase {
     @Tag("selenium")
     void verifySeleniumStartPageTitle(Websites websites) {
         driver.get(websites.getWebUrl());
-        String actualTitle= driver.getTitle();
+        String actualTitle = driver.getTitle();
         assertThat(actualTitle, equalTo(websites.getTitle()));
     }
-
-
 
 }
